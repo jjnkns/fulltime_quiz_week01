@@ -6,6 +6,7 @@
 #Euro's value in that currency.
 #Return a list of dictionaries from this data, with each
 #line of the file corresponding to an element in the dictionary.
+import json
 
 def readcurrency(filename):
     currency_list = []
@@ -16,8 +17,14 @@ def readcurrency(filename):
         currency_list.append({"symbol":symbol, "rate":float(rate)})
     return currency_list
 
+def save(json_filename, data):
+    with open(json_filename, 'w') as fh:
+        json.dump(data, fh, indent=4)
+        
+
         
 print(readcurrency("currency.txt"))
+save('currency.json', readcurrency("currency.txt"))
 
 
 
