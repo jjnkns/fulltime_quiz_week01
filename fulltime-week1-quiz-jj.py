@@ -18,8 +18,9 @@ def readcurrency(filename):
     return currency_list
 
 def save(json_filename, data):
+    data_dict={"data":data}
     with open(json_filename, 'w') as fh:
-        json.dump(data, fh, indent=4)
+        json.dump(data_dict, fh, indent=4)
         
 
         
